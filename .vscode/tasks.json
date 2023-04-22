@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "$F:/Jackson/C/RayTracing\\$RayTracer.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"

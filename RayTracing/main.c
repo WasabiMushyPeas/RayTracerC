@@ -11,8 +11,6 @@ int main()
     const int rgbValue = 255;
     struct Pixel frame[width][height];
 
-    newPPMFile(width, height, "test.ppm", 255);
-
     for (int j = height - 1; j >= 0; j--)
     {
         for (int i = 0; i < width; i++)
