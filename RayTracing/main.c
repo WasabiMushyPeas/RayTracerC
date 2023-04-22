@@ -1,8 +1,8 @@
-#include "functions.h"
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
+#include "utils.c"
 
 int main()
 {
@@ -13,6 +13,9 @@ int main()
 
     for (int j = height - 1; j >= 0; j--)
     {
+        printf("\rScanlines remaining: %d ", j);
+        fflush(stdout);
+
         for (int i = 0; i < width; i++)
         {
             float r = (float)i / (float)width;
