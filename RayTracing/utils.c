@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdint.h>
 
+<<<<<<< HEAD
 void writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct Pixel (*array)[height])
+=======
+void newPPMFile(int width, int height, char *fileName, int rgbValue)
+>>>>>>> parent of 4b507fb (Still has segment fualt)
 {
 
     FILE *file = fopen(("./", fileName), "w");
@@ -14,17 +17,15 @@ void writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct 
     fprintf(file, " %d\n", height);
     fprintf(file, "%d\n", rgbValue);
 
-    for (int j = height - 1; j >= 0; j--)
-    {
-        for (int i = 0; i < width; i++)
-        {
-            fprintf(file, "%d", array[j][i].red);
-            fprintf(file, " %d", array[j][i].green);
-            fprintf(file, " %d\n", array[j][i].blue);
-        }
-    }
+    fclose(file);
+}
+
+void addPixeltoPPMFile(int red, int green, int blue, char *fileName)
+{
+
+    FILE *file = fopen(("./", fileName), "a");
+
+    fprintf(file, "%d %d %d\n", red, green, blue);
 
     fclose(file);
-
-    printf("File written to %s \n", fileName);
 }
