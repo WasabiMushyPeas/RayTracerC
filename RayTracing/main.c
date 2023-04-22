@@ -7,24 +7,33 @@ int main()
 {
     const int width = 256;
     const int height = 256;
+    char *fileName = "test.ppm";
+    const uint8_t rgbValue = 255;
 
-    newPPMFile(width, height, "test.ppm", 255);
+    struct Pixel frame[width][height];
 
-    for (int j = height - 1; j >= 0; j--)
+    for (int j = 0; j < height; j++)
     {
+        printf("Scanlines remaining: %d\n", (height - j));
+
         for (int i = 0; i < width; i++)
         {
             float r = (float)i / (float)width;
             float g = (float)j / (float)height;
             float b = 0.2f;
 
-            int ir = (int)(255.99f * r);
-            int ig = (int)(255.99f * g);
-            int ib = (int)(255.99f * b);
+            uint8_t ir = (int)(255.99f * r);
+            uint8_t ig = (int)(255.99f * g);
+            uint8_t ib = (int)(255.99f * b);
 
-            addPixeltoPPMFile(ir, ig, ib, "test.ppm");
+            frame[height][width].red = ir;
+            frame[height][width].green = ig;
+            frame[height][width].blue = ib;
         }
     }
 
+    writeToPPMFile(width, height, fileName, rgbValue, frame);
+
+    printf("Render complete");
     return 0;
 }
