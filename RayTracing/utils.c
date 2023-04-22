@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void newPPMFile(int width, int height, char *fileName, int rgbValue, int (*array)[height])
+void newPPMFile(int width, int height, char *fileName, int rgbValue)
 {
 
     FILE *file = fopen(("./", fileName), "w");
@@ -15,10 +15,12 @@ void newPPMFile(int width, int height, char *fileName, int rgbValue, int (*array
     fclose(file);
 }
 
-void addtoPPMFile(int width, int height, char *fileName, int rgbValue, int (*array)[height])
+void addPixeltoPPMFile(int red, int green, int blue, char *fileName)
 {
 
     FILE *file = fopen(("./", fileName), "a");
+
+    fprintf(file, "%d %d %d\n", red, green, blue);
 
     fclose(file);
 }
