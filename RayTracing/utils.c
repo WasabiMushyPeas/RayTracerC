@@ -1,14 +1,8 @@
+#include "functions.h"
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
-
-struct Pixel
-{
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-};
 
 void writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct Pixel (*array)[height])
 {
