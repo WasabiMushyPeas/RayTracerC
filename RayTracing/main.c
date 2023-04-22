@@ -8,6 +8,8 @@ int main()
 {
     const int width = 256;
     const int height = 256;
+    const int rgbValue = 255;
+    struct Pixel frame[width][height];
 
     newPPMFile(width, height, "test.ppm", 255);
 
@@ -23,9 +25,13 @@ int main()
             int ig = (int)(255.99f * g);
             int ib = (int)(255.99f * b);
 
-            addPixeltoPPMFile(ir, ig, ib, "test.ppm");
+            frame[i][j].red = ir;
+            frame[i][j].green = ig;
+            frame[i][j].blue = ib;
         }
     }
+
+    writeToPPMFile(width, height, "test.ppm", rgbValue, frame);
 
     return 0;
 }
