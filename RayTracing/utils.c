@@ -1,31 +1,28 @@
-#include "functions.h"
 #include <stdlib.h>
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include "structs.h"
 
-<<<<<<< HEAD
-void writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct Pixel (*array)[height])
-=======
-void newPPMFile(int width, int height, char *fileName, int rgbValue)
->>>>>>> parent of 4b507fb (Still has segment fualt)
+bool writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct Pixel frame[width][height])
 {
+    FILE *file = fopen(fileName, "w");
 
-    FILE *file = fopen(("./", fileName), "w");
+    if (file == NULL)
+    {
+        return false;
+    }
 
-    fprintf(file, "P3\n");
-    fprintf(file, "%d", width);
-    fprintf(file, " %d\n", height);
-    fprintf(file, "%d\n", rgbValue);
+    fprintf(file, "P3\n%d %d\n%d\n", width, height, rgbValue);
+
+    for (int j = height - 1; j >= 0; j--)
+    {
+        for (int i = 0; i < width; i++)
+        {
+            fprintf(file, "%d %d %d\n", frame[i][j].red, frame[i][j].green, frame[i][j].blue);
+        }
+    }
 
     fclose(file);
-}
 
-void addPixeltoPPMFile(int red, int green, int blue, char *fileName)
-{
-
-    FILE *file = fopen(("./", fileName), "a");
-
-    fprintf(file, "%d %d %d\n", red, green, blue);
-
-    fclose(file);
+    return true;
 }
