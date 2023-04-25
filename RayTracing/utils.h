@@ -1,9 +1,11 @@
+#ifdef UTILS_H
+#define UTILS_H
+
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
-#include "structs.h"
+#include "colour.h"
 
-bool writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct Pixel frame[width][height])
+bool writeToPPMFile(int WIDTH, int HEIGHT, char *fileName, int RGBVALUE, pixel frame[WIDTH][HEIGHT])
 {
     FILE *file = fopen(fileName, "w");
 
@@ -12,11 +14,11 @@ bool writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct 
         return false;
     }
 
-    fprintf(file, "P3\n%d %d\n%d\n", width, height, rgbValue);
+    fprintf(file, "P3\n%d %d\n%d\n", WIDTH, HEIGHT, RGBVALUE);
 
-    for (int j = height - 1; j >= 0; j--)
+    for (int j = HEIGHT - 1; j >= 0; j--)
     {
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < WIDTH; i++)
         {
             fprintf(file, "%d %d %d\n", frame[i][j].red, frame[i][j].green, frame[i][j].blue);
         }
@@ -26,3 +28,5 @@ bool writeToPPMFile(int width, int height, char *fileName, int rgbValue, struct 
 
     return true;
 }
+
+#endif
