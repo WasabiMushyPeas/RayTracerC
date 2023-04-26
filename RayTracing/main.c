@@ -1,38 +1,37 @@
-#include <stdlib.h>
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdint.h>
-#include "utils.c"
+#include "utils.h"
+#include "vector3.h"
+#include "ray.h"
+#include "colour.h"
+#include "vars.h"
+
+// setup variables from vars.h
+int WIDTH = 256;
+int HEIGHT = 256;
+uint8_t RGBVALUE = 255;
 
 int main()
 {
-    const int width = 256;
-    const int height = 256;
-    const int rgbValue = 255;
-    struct Pixel frame[width][height];
 
-    for (int j = height - 1; j >= 0; j--)
+    struct pixel frame[WIDTH][HEIGHT];
+
+    for (int j = HEIGHT - 1; j >= 0; j--)
     {
         printf("\rScanlines remaining: %d ", j);
         fflush(stdout);
 
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < WIDTH; i++)
         {
-            float r = (float)i / (float)width;
-            float g = (float)j / (float)height;
-            float b = 0.2f;
 
-            int ir = (int)(255.99f * r);
-            int ig = (int)(255.99f * g);
-            int ib = (int)(255.99f * b);
+            vec3 pix = {(double)(i) / (WIDTH - 1), (double)(j) / (HEIGHT - 1), 0.25};
 
-            frame[i][j].red = ir;
-            frame[i][j].green = ig;
-            frame[i][j].blue = ib;
+            addPixel(frame, i, j, vec3ToPixel(pix));
         }
     }
 
-    writeToPPMFile(width, height, "test.ppm", rgbValue, frame);
+    writeToPPMFile(WIDTH, HEIGHT, "test.ppm", RGBVALUE, frame[HEIGHT]);
 
     return 0;
 }
