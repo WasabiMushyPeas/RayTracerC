@@ -2,18 +2,19 @@
 #define RAY_H
 
 #include "vector3.h"
+#include "vars.h"
 
-typedef struct Ray
+typedef struct ray
 {
-    struct Vector3 origin;
-    struct Vector3 direction;
+    vec3 origin;
+    vec3 direction;
 } ray;
 
 // Multiply ray by scalar and add to origin
-struct Vector3 rayAt(ray rayFind, float t)
+vec3 rayAt(ray rayFind, float t)
 {
-    struct Vector3 origin = rayFind.origin;
-    struct Vector3 direction = rayFind.direction;
+    vec3 origin = rayFind.origin;
+    vec3 direction = rayFind.direction;
     return add(origin, mulScalar(direction, t));
 }
 

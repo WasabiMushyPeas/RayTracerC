@@ -2,10 +2,10 @@
 #define COLOUR_H
 
 #include "vector3.h"
-#include "main.c"
 #include <stdint.h>
+#include "vars.h"
 
-typedef struct Pixel
+typedef struct pixel
 {
     uint8_t red;
     uint8_t green;
@@ -15,7 +15,7 @@ typedef struct Pixel
 // Float pixel to uint8_t pixel
 pixel vec3ToPixel(vec3 pix)
 {
-    struct Pixel result = {
+    pixel result = {
         (uint8_t)(pix.x * 255),
         (uint8_t)(pix.y * 255),
         (uint8_t)(pix.z * 255),

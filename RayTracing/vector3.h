@@ -3,8 +3,9 @@
 
 #include <math.h>
 #include <stdio.h>
+#include "vars.h"
 
-typedef struct Vector3
+typedef struct vec3
 {
     double x;
     double y;
