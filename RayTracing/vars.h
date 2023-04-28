@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include "colour.h"
 
-extern const int WIDTH;
-extern const int HEIGHT;
+#define WIDTH 256
+#define HEIGHT 256
 extern const uint8_t RGBVALUE;
 extern const char fileName[];
 extern struct pixel frame[WIDTH][HEIGHT];

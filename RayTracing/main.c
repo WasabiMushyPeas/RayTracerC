@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "utils.h"
 #include "vector3.h"
 #include "ray.h"
@@ -8,10 +9,10 @@
 #include "vars.h"
 
 // setup variables from vars.h
-const int WIDTH = 256;
-const int HEIGHT = 256;
 const uint8_t RGBVALUE = 255;
 const char fileName[] = "test.ppm";
+
+bool writeToPPMFile(char *fileName, int RGBVALUE, pixel frame[WIDTH][HEIGHT]);
 
 int main()
 {
@@ -34,7 +35,7 @@ int main()
         }
     }
 
-    writeToPPMFile();
+    writeToPPMFile(fileName, RGBVALUE, frame);
 
     return 0;
 }

@@ -4,9 +4,15 @@
 #include "colour.h"
 #include "vars.h"
 
-void writeToPPMFile()
+// Write a function to write the frame to a PPM file (P3) that returns a bool
+bool writeToPPMFile(char *fileName, int RGBVALUE, pixel frame[WIDTH][HEIGHT])
 {
     FILE *file = fopen(fileName, "w");
+
+    if (file == NULL)
+    {
+        return false;
+    }
 
     fprintf(file, "P3\n%d %d\n%d\n", WIDTH, HEIGHT, RGBVALUE);
 
@@ -19,4 +25,6 @@ void writeToPPMFile()
     }
 
     fclose(file);
+
+    return true;
 }
