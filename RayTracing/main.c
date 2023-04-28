@@ -8,14 +8,13 @@
 #include "vars.h"
 
 // setup variables from vars.h
-int WIDTH = 256;
-int HEIGHT = 256;
-uint8_t RGBVALUE = 255;
+const int WIDTH = 256;
+const int HEIGHT = 256;
+const uint8_t RGBVALUE = 255;
+const char fileName[] = "test.ppm";
 
 int main()
 {
-
-    struct pixel frame[WIDTH][HEIGHT];
 
     for (int j = HEIGHT - 1; j >= 0; j--)
     {
@@ -27,11 +26,15 @@ int main()
 
             vec3 pix = {(double)(i) / (WIDTH - 1), (double)(j) / (HEIGHT - 1), 0.25};
 
-            addPixel(frame, i, j, vec3ToPixel(pix));
+            pixel pixColour = vec3ToPixel(pix);
+
+            frame[i][j].red += pixColour.red;
+            frame[i][j].green += pixColour.green;
+            frame[i][j].blue += pixColour.blue;
         }
     }
 
-    writeToPPMFile(WIDTH, HEIGHT, "test.ppm", RGBVALUE, frame[HEIGHT]);
+    writeToPPMFile();
 
     return 0;
 }

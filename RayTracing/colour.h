@@ -23,14 +23,6 @@ pixel vec3ToPixel(vec3 pix)
     return result;
 }
 
-// Add pixel to frame with input as a pixel
-void addPixel(pixel frame[WIDTH][HEIGHT], int i, int j, pixel pix)
-{
-    frame[i][j].red += pix.red;
-    frame[i][j].green += pix.green;
-    frame[i][j].blue += pix.blue;
-}
-
 // Print pixel
 void printPixel(pixel pix)
 {

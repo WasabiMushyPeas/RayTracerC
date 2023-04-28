@@ -1,19 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "colour.h"
 #include "vars.h"
 
-// const int height = HEIGHT;
-// const int width = WIDTH;
-
-bool writeToPPMFile(int height, char *fileName, int RGBVALUE, pixel *frame)
+void writeToPPMFile()
 {
     FILE *file = fopen(fileName, "w");
-
-    if (file == NULL)
-    {
-        return false;
-    }
 
     fprintf(file, "P3\n%d %d\n%d\n", WIDTH, HEIGHT, RGBVALUE);
 
@@ -26,6 +19,4 @@ bool writeToPPMFile(int height, char *fileName, int RGBVALUE, pixel *frame)
     }
 
     fclose(file);
-
-    return true;
 }

@@ -2,6 +2,8 @@
 #define VECTOR_H
 
 #include <math.h>
+#include <stdint.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "vars.h"
 
