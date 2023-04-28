@@ -12,8 +12,6 @@
 const uint8_t RGBVALUE = 255;
 const char fileName[] = "test.ppm";
 
-bool writeToPPMFile(char *fileName, int RGBVALUE, pixel frame[WIDTH][HEIGHT]);
-
 int main()
 {
 
@@ -33,7 +31,14 @@ int main()
         }
     }
 
-    writeToPPMFile(fileName, RGBVALUE, frame);
+    if (writeToPPMFile(fileName, RGBVALUE, frame))
+    {
+        printf("\nSuccessfully wrote to file %s\n", fileName);
+    }
+    else
+    {
+        printf("\nFailed to write to file %s\n", fileName);
+    }
 
     return 0;
 }
