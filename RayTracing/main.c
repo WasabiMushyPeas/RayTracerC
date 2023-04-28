@@ -25,9 +25,7 @@ int main()
         for (int i = 0; i < WIDTH; i++)
         {
 
-            vec3 pix = {(double)(i) / (WIDTH - 1), (double)(j) / (HEIGHT - 1), 0.25};
-
-            pixel pixColour = vec3ToPixel(pix);
+            pixel pixColour = {doubleToUint8Colour((double)(i) / (WIDTH - 1)), doubleToUint8Colour((double)(j) / (HEIGHT - 1)), doubleToUint8Colour(0.25)};
 
             frame[i][j].red += pixColour.red;
             frame[i][j].green += pixColour.green;

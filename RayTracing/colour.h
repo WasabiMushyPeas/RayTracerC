@@ -12,15 +12,10 @@ typedef struct pixel
     uint8_t blue;
 } pixel;
 
-// Float pixel to uint8_t pixel
-pixel vec3ToPixel(vec3 pix)
+// double 0.0 - 1.0 to uint8_t 0 - 255
+uint8_t doubleToUint8Colour(double d)
 {
-    pixel result = {
-        (uint8_t)(pix.x * 255),
-        (uint8_t)(pix.y * 255),
-        (uint8_t)(pix.z * 255),
-    };
-    return result;
+    return (uint8_t)(d * 255.0);
 }
 
 // Print pixel
