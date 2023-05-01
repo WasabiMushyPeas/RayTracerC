@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "utils.h"
 #include "vector3.h"
 #include "ray.h"
@@ -8,14 +9,11 @@
 #include "vars.h"
 
 // setup variables from vars.h
-int WIDTH = 256;
-int HEIGHT = 256;
-uint8_t RGBVALUE = 255;
+const uint8_t RGBVALUE = 255;
+const char fileName[] = "test.ppm";
 
 int main()
 {
-
-    struct pixel frame[WIDTH][HEIGHT];
 
     for (int j = HEIGHT - 1; j >= 0; j--)
     {
@@ -25,13 +23,22 @@ int main()
         for (int i = 0; i < WIDTH; i++)
         {
 
-            vec3 pix = {(double)(i) / (WIDTH - 1), (double)(j) / (HEIGHT - 1), 0.25};
+            pixel pixColour = {doubleToUint8Colour((double)(i) / (WIDTH - 1)), doubleToUint8Colour((double)(j) / (HEIGHT - 1)), doubleToUint8Colour(0.25)};
 
-            addPixel(frame, i, j, vec3ToPixel(pix));
+            frame[i][j].red += pixColour.red;
+            frame[i][j].green += pixColour.green;
+            frame[i][j].blue += pixColour.blue;
         }
     }
 
-    writeToPPMFile(WIDTH, HEIGHT, "test.ppm", RGBVALUE, frame[HEIGHT]);
+    if (writeToPPMFile(fileName, RGBVALUE, frame))
+    {
+        printf("\nSuccessfully wrote to file %s\n", fileName);
+    }
+    else
+    {
+        printf("\nFailed to write to file %s\n", fileName);
+    }
 
     return 0;
 }
