@@ -3,6 +3,7 @@
 
 #include "vector3.h"
 #include "vars.h"
+#include "ray.c"
 
 typedef struct ray
 {
@@ -10,12 +11,6 @@ typedef struct ray
     vec3 direction;
 } ray;
 
-// Multiply ray by scalar and add to origin
-vec3 rayAt(ray rayFind, float t)
-{
-    vec3 origin = rayFind.origin;
-    vec3 direction = rayFind.direction;
-    return add(origin, mulScalar(direction, t));
-}
+vec3 rayAt(ray rayFind, float t);
 
 #endif
