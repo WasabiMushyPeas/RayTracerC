@@ -7,6 +7,7 @@
 #include "ray.h"
 #include "colour.h"
 #include "vars.h"
+#include "fileIO.h"
 
 // setup variables from vars.h
 const uint8_t RGBVALUE = 255;
@@ -31,7 +32,7 @@ int main()
         }
     }
 
-    if (writeToPPMFile(fileName, RGBVALUE, frame))
+    if (writeToPPMFile(frame))
     {
         printf("\nSuccessfully wrote to file %s\n", fileName);
     }

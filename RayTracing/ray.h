@@ -3,12 +3,12 @@
 
 #include "vector3.h"
 #include "vars.h"
-#include "ray.c"
 
 typedef struct ray
 {
     vec3 origin;
     vec3 direction;
+
 } ray;
 
 vec3 rayAt(ray rayFind, float t);

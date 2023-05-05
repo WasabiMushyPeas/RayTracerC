@@ -1,7 +1,7 @@
 #include "fileIO.h"
 
 // Write a function to write the frame to a PPM file (P3) that returns a bool
-bool writeToPPMFile(char *fileName, int RGBVALUE, pixel frame[WIDTH][HEIGHT])
+bool writeToPPMFile(pixel frame[WIDTH][HEIGHT])
 {
     FILE *file = fopen(fileName, "w");
 

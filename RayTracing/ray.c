@@ -1,4 +1,5 @@
 #include "ray.h"
+#include "vector3.h"
 
 // Multiply ray by scalar and add to origin
 vec3 rayAt(ray rayFind, float t)
