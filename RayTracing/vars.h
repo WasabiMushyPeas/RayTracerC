@@ -6,8 +6,7 @@
 
 #define WIDTH 256
 #define HEIGHT 256
-extern const uint8_t RGBVALUE;
+extern const int RGBVALUE;
 extern const char fileName[];
-extern struct pixel frame[WIDTH][HEIGHT];
 
 #endif

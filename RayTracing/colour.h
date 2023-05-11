@@ -1,9 +1,10 @@
 #ifndef COLOUR_H
 #define COLOUR_H
 
-#include "vector3.h"
 #include <stdint.h>
-#include "vars.h"
+#include <stdio.h>
+// #include "vector3.h"
+//  #include "vars.h"
 
 typedef struct pixel
 {

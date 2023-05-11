@@ -1,9 +1,3 @@
-#write a make file to compile the program with gcc compiler
-CC = gcc
-PNAME = ra
-SRC = $(wildcard *.c)
-Link = -lm -stdint
- 
-build:
-	
-	@$(CC) -o 
+bulid: colour.c fileIO.c main.c ray.c vector3.c
+    gcc -o run colour.c fileIO.c main.c ray.c vector3.c -I.
+
