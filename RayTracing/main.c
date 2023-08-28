@@ -42,7 +42,6 @@ int main()
     for (int j = HEIGHT - 1; j >= 0; j--)
     {
         printf("\rScanlines remaining: %d ", j);
-        fflush(stdout);
 
         for (int i = 0; i < WIDTH; i++)
         {
@@ -50,12 +49,13 @@ int main()
             vec3 rayDir = sub(pixelCenter, cameraOrigin);
             ray r = {cameraOrigin, rayDir};
 
-            pixel pixColour = rayColour(r);
+                        pixel pixColour = rayColour(r);
 
-            frame[i][j].red = pixColour.red;
-            frame[i][j].green = pixColour.green;
-            frame[i][j].blue = pixColour.blue;
+            frame[i][j].red += pixColour.red;
+            frame[i][j].green += pixColour.green;
+            frame[i][j].blue += pixColour.blue;
         }
+        fflush(stdout);
     }
 
     if (writeToPPMFile(fileName, RGBVALUE, frame))

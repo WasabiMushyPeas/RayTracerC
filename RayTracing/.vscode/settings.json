@@ -36,7 +36,8 @@
   "C_Cpp_Runner.useAddressSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "cSpell.words": [
-    "RGBVALUE"
+    "RGBVALUE",
+    "Scanlines"
   ],
   "files.associations": {
     "fileio.h": "c"

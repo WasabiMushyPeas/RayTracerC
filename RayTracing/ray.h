@@ -12,5 +12,6 @@ typedef struct ray
 
 vec3 rayAt(ray rayFind, float t);
 pixel rayColour(ray r);
+void printRay(ray r);
 
 #endif
