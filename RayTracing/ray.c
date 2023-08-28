@@ -23,5 +23,5 @@ pixel rayColour(ray r)
 // Print ray
 void printRay(ray r)
 {
-    printf("Ray: %f %f %f %f %f %f\n", r.origin.x, r.origin.y, r.origin.z, r.direction.x, r.direction.y, r.direction.z);
+    printf("Ray: %f, %f, %f / %f, %f, %f\n", r.origin.x, r.origin.y, r.origin.z, r.direction.x, r.direction.y, r.direction.z);
 }

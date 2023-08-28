@@ -49,7 +49,9 @@ int main()
             vec3 rayDir = sub(pixelCenter, cameraOrigin);
             ray r = {cameraOrigin, rayDir};
 
-                        pixel pixColour = rayColour(r);
+            printRay(r);
+
+            pixel pixColour = rayColour(r);
 
             frame[i][j].red += pixColour.red;
             frame[i][j].green += pixColour.green;
