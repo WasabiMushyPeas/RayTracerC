@@ -12,6 +12,7 @@
 // setup variables from vars.h
 const uint8_t RGBVALUE = 255;
 const char fileName[] = "test.ppm";
+struct pixel frame[WIDTH][HEIGHT];
 
 int main()
 {
