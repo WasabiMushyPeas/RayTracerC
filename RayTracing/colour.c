@@ -1,4 +1,5 @@
 #include "colour.h"
+#include <stdio.h>
 
 // double 0.0 - 1.0 to uint8_t 0 - 255
 uint8_t doubleToUint8Colour(double d)

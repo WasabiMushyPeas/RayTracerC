@@ -1,6 +1,7 @@
 #include "vector3.h"
+#include <stdio.h>
 
-// Make vector negitive
+// Make vector negative
 vec3 neg(vec3 v)
 {
     vec3 result = {-v.x, -v.y, -v.z};

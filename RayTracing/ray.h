@@ -2,8 +2,6 @@
 #define RAY_H
 
 #include "vector3.h"
-#include "vars.h"
-#include "ray.c"
 
 typedef struct ray
 {

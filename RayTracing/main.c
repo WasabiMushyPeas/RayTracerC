@@ -7,6 +7,7 @@
 #include "ray.h"
 #include "colour.h"
 #include "vars.h"
+#include "fileIO.h"
 
 // setup variables from vars.h
 const uint8_t RGBVALUE = 255;

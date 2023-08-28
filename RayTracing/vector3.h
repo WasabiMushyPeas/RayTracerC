@@ -3,9 +3,6 @@
 
 #include <math.h>
 #include <stdint.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "vars.h"
 
 typedef struct vec3
 {
