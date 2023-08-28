@@ -12,3 +12,10 @@ void printPixel(pixel pix)
 {
     printf("Pixel: %d %d %d\n", pix.red, pix.green, pix.blue);
 }
+
+// Convert vec3 to pixel
+pixel vec3ToPixel(vec3 v)
+{
+    pixel pix = {v.x, v.y, v.z};
+    return pix;
+}

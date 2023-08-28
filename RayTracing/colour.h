@@ -2,6 +2,7 @@
 #define COLOUR_H
 
 #include <stdint.h>
+#include "vector3.h"
 
 typedef struct pixel
 {
@@ -13,5 +14,7 @@ typedef struct pixel
 uint8_t doubleToUint8Colour(double d);
 
 void printPixel(pixel pix);
+
+pixel vec3ToPixel(vec3 v);
 
 #endif

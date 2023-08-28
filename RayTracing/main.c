@@ -13,10 +13,32 @@
 const uint8_t RGBVALUE = 255;
 const char fileName[] = "test.ppm";
 struct pixel frame[WIDTH][HEIGHT];
+double viewportHeight = 2.0;
+double viewportWidth = 4.0;
 
 int main()
 {
 
+    // Viewport / Camera instantiation
+    double viewportHeight = 2.0;
+    double viewportWidth = viewportHeight * (int)(WIDTH / HEIGHT);
+    double focalLength = 1.0;
+    vec3 cameraOrigin = {0.0, 0.0, 0.0};
+
+    // Viewport
+    vec3 viewport_u = {viewportWidth, 0.0, 0.0};
+    vec3 viewport_v = {0.0, -viewportHeight, 0.0};
+
+    // Pixel spacing
+    vec3 pixel_u_delta = divScalar(viewport_u, (double)(WIDTH - 1));
+    vec3 pixel_v_delta = divScalar(viewport_v, (double)(-HEIGHT + 1));
+
+    // Upper Left Pixel
+    vec3 focalLengthVec = {0.0, 0.0, focalLength};
+    vec3 viewportUpperLeft = sub(cameraOrigin, sub(focalLengthVec, sub(divScalar(viewport_u, 2.0), divScalar(viewport_v, 2.0))));
+    vec3 pixel100location = add(viewportUpperLeft, add(mulScalar(pixel_u_delta, 0.5), mulScalar(pixel_v_delta, 0.5)));
+
+    // Render
     for (int j = HEIGHT - 1; j >= 0; j--)
     {
         printf("\rScanlines remaining: %d ", j);
@@ -24,12 +46,15 @@ int main()
 
         for (int i = 0; i < WIDTH; i++)
         {
+            vec3 pixelCenter = add(pixel100location, add(mulScalar(pixel_u_delta, (double)(i)), mulScalar(pixel_v_delta, (double)(j))));
+            vec3 rayDir = sub(pixelCenter, cameraOrigin);
+            ray r = {cameraOrigin, rayDir};
 
-            pixel pixColour = {doubleToUint8Colour((double)(i) / (WIDTH - 1)), doubleToUint8Colour((double)(j) / (HEIGHT - 1)), doubleToUint8Colour(0.25)};
+            pixel pixColour = rayColour(r);
 
-            frame[i][j].red += pixColour.red;
-            frame[i][j].green += pixColour.green;
-            frame[i][j].blue += pixColour.blue;
+            frame[i][j].red = pixColour.red;
+            frame[i][j].green = pixColour.green;
+            frame[i][j].blue = pixColour.blue;
         }
     }
 

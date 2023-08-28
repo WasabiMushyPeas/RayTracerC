@@ -2,6 +2,7 @@
 #define RAY_H
 
 #include "vector3.h"
+#include "colour.h"
 
 typedef struct ray
 {
@@ -10,5 +11,6 @@ typedef struct ray
 } ray;
 
 vec3 rayAt(ray rayFind, float t);
+pixel rayColour(ray r);
 
 #endif
