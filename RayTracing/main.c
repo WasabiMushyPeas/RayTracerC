@@ -30,8 +30,8 @@ int main()
     vec3 viewport_v = {0.0, -viewportHeight, 0.0};
 
     // Pixel spacing
-    vec3 pixel_u_delta = divScalar(viewport_u, (double)(WIDTH - 1));
-    vec3 pixel_v_delta = divScalar(viewport_v, (double)(-HEIGHT + 1));
+    vec3 pixel_u_delta = divScalar(viewport_u, (double)(WIDTH));
+    vec3 pixel_v_delta = divScalar(viewport_v, (double)(-HEIGHT));
 
     // Upper Left Pixel
     vec3 focalLengthVec = {0.0, 0.0, focalLength};
@@ -49,15 +49,13 @@ int main()
             vec3 rayDir = sub(pixelCenter, cameraOrigin);
             ray r = {cameraOrigin, rayDir};
 
-            printRay(r);
-
             pixel pixColour = rayColour(r);
 
             frame[i][j].red += pixColour.red;
             frame[i][j].green += pixColour.green;
             frame[i][j].blue += pixColour.blue;
         }
-        fflush(stdout);
+        // fflush(stdout);
     }
 
     if (writeToPPMFile(fileName, RGBVALUE, frame))

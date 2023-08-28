@@ -16,6 +16,6 @@ void printPixel(pixel pix)
 // Convert vec3 to pixel
 pixel vec3ToPixel(vec3 v)
 {
-    pixel pix = {v.x, v.y, v.z};
+    pixel pix = {doubleToUint8Colour(v.x), doubleToUint8Colour(v.y), doubleToUint8Colour(v.z)};
     return pix;
 }

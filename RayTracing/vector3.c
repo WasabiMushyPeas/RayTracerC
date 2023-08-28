@@ -82,5 +82,5 @@ vec3 cross(vec3 v1, vec3 v2)
 // Print vector
 void printVector(vec3 v)
 {
-    printf("Vector3(%f, %f, %f)\n", v.x, v.y, v.z);
+    printf("vec3: %f, %f, %f\n", v.x, v.y, v.z);
 }
