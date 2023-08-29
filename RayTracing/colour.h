@@ -1,9 +1,8 @@
 #ifndef COLOUR_H
 #define COLOUR_H
 
-#include "vector3.h"
 #include <stdint.h>
-#include "vars.h"
+#include "vector3.h"
 
 typedef struct pixel
 {
@@ -15,5 +14,7 @@ typedef struct pixel
 uint8_t doubleToUint8Colour(double d);
 
 void printPixel(pixel pix);
+
+pixel vec3ToPixel(vec3 v);
 
 #endif
