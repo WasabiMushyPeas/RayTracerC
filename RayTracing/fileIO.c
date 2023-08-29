@@ -1,6 +1,3 @@
-// TODO:
-// Update from github
-
 #include "fileIO.h"
 #include <stdio.h>
 #include <stdbool.h>
