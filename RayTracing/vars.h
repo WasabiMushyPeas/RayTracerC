@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include "colour.h"
 
-#define WIDTH 256
-#define HEIGHT 256
+#define WIDTH 400
+#define HEIGHT 225
 extern const int RGBVALUE;
 extern const char fileName[];
 

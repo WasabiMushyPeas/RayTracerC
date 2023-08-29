@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "ray.h"
 // #include "vector3.h"
 //  #include "vars.h"
 

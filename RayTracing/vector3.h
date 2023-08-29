@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include "vars.h"
 
-typedef struct vec3
+typedef struct vector3D
 {
     double x;
     double y;

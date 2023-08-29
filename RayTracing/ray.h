@@ -4,13 +4,13 @@
 #include "vector3.h"
 #include "vars.h"
 
-typedef struct ray
+typedef struct Lightray
 {
-    vec3 origin;
-    vec3 direction;
+    struct vector3D *origin;
+    struct vector3D *direction;
 
 } ray;
 
-vec3 rayAt(ray rayFind, float t);
+struct vector3D rayAt(ray rayFind, float t);
 
 #endif
