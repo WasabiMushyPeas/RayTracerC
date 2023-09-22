@@ -8,5 +8,6 @@ bool sphereIntersection(sphere s, ray r)
     float b = 2.0 * dot(oc, r.direction);
     float c = dot(oc, oc) - s.radius * s.radius;
     float discriminant = b * b - 4 * a * c;
-    return (discriminant > 0);
+    printf("Discriminant: %f\n", discriminant);
+    return (discriminant >= 0);
 }

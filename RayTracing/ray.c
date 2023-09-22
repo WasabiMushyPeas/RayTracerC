@@ -16,6 +16,7 @@ pixel rayColour(ray r)
     sphere s = {0.5, {0.0, 0.0, -1.0}};
     if (sphereIntersection(s, r))
     {
+        printf("Hit sphere\n");
         vec3 red = {1.0, 0.0, 0.0};
         return vec3ToPixel(red);
     }
