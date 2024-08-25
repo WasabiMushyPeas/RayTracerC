@@ -1,0 +1,12 @@
+# RayTracerC
+
+This is a C implementation of a ray tracer, a program that simulates the behavior of light in a virtual 3D environment. The goal of this project is to generate realistic images by tracing the path of light rays as they interact with objects in the scene.
+
+## Features
+
+- Support for rendering basic geometric shapes such as spheres, planes, and triangles.
+- Implementation of various lighting models, including diffuse, specular, and ambient lighting.
+- Support for shadows and reflections.
+- Ability to render scenes with multiple objects and light sources.
+- Customizable camera settings, such as field of view and depth of field.
+
